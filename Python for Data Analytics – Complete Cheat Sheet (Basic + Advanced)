@@ -17,234 +17,231 @@ Purpose: Store and manipulate data for calculations and analysis.
 
 
 Example:
-x = 10
-y = 5.5
-name = "Alice"
-is_active = True
-my_list = [1,2,3]
-my_dict = {"Name":"Bob","Age":25}
+        x = 10
+        y = 5.5
+        name = "Alice"
+        is_active = True
+        my_list = [1,2,3]
+        my_dict = {"Name":"Bob","Age":25}
 
 2. Basic Operations
 -------------------
 
-Arithmetic: +, -, *, /, %
-Comparison: ==, !=, >, <
-Logical: and, or, not
-
-a, b = 10, 5
-print(a + b, a - b, a * b, a / b, a % b)
-print(a > b and b < 10)
+        Arithmetic: +, -, *, /, %
+        Comparison: ==, !=, >, <
+        Logical: and, or, not
+        
+        a, b = 10, 5
+        print(a + b, a - b, a * b, a / b, a % b)
+        print(a > b and b < 10)
 
 3. Control Flow
 ---------------
 If-Else
-x = 15
-if x > 10:
-    print("High")
-else:
-    print("Low")
+        x = 15
+        if x > 10:
+            print("High")
+        else:
+            print("Low")
 
 Loops
 For loop:
-for i in range(5):
-    print(i)
-
+        for i in range(5):
+            print(i)
+        
 While loop:
-count = 0
-while count < 5:
-    print(count)
-    count += 1
+        count = 0
+        while count < 5:
+            print(count)
+            count += 1
 
 4. Functions
 -------------
 Basic function:
-def add(x, y):
-    return x + y
-
-print(add(10,5))
+        def add(x, y):
+            return x + y
+        
+        print(add(10,5))
 
 With default parameters:
-def greet(name="User"):
-    print(f"Hello {name}")
-
-greet("Alice")
-greet()
+        def greet(name="User"):
+            print(f"Hello {name}")
+        
+        greet("Alice")
+        greet()
 
 5. Collections (List, Tuple, Set, Dictionary)
 ---------------------------------------------
 List: ordered, mutable
-nums = [1,2,3,4]
-nums.append(5)
-squared = [x**2 for x in nums]  # List comprehension
+        nums = [1,2,3,4]
+        nums.append(5)
+        squared = [x**2 for x in nums]  # List comprehension
 
 Tuple: ordered, immutable
-tpl = (1,2,3)
-print(tpl[0])
+        tpl = (1,2,3)
+        print(tpl[0])
 
 Set: unique elements
-s = {1,2,3}
-s.add(4)
+        s = {1,2,3}
+        s.add(4)
 
 Dictionary: key-value pairs
-data = {"Name":"Alice","Age":25}
-for k,v in data.items():
-    print(k,v)
+        data = {"Name":"Alice","Age":25}
+        for k,v in data.items():
+            print(k,v)
 
 6. Strings
 -----------
-text = "  Hello World  "
-print(text.lower())
-print(text.upper())
-print(text.strip())
-print(text.split())
-print(text.replace("World","Python"))
+        text = "  Hello World  "
+        print(text.lower())
+        print(text.upper())
+        print(text.strip())
+        print(text.split())
+        print(text.replace("World","Python"))
 
 7. File Handling & Pandas
 ------------------------
-import pandas as pd
+        import pandas as pd
+        
+        # Load CSV / Excel
+        df_csv = pd.read_csv("sales.csv")
+        df_excel = pd.read_excel("sales.xlsx")
 
-# Load CSV / Excel
-df_csv = pd.read_csv("sales.csv")
-df_excel = pd.read_excel("sales.xlsx")
-
-# View data
-print(df_csv.head())
-print(df_csv.info())
-
-# Select / Filter
-df_csv['Quantity']
-df_csv[df_csv['Quantity'] > 10]
-
-# GroupBy & Aggregation
-df_csv.groupby('ProductID')['Quantity'].sum().reset_index()
-
-# Merge / Join
-df1 = pd.DataFrame({"ID":[1,2],"Score":[80,90]})
-df2 = pd.DataFrame({"ID":[1,2],"Name":["John","Alice"]})
-df_merge = pd.merge(df1, df2, on="ID")
+        # View data
+        print(df_csv.head())
+        print(df_csv.info())
+        
+        # Select / Filter
+        df_csv['Quantity']
+        df_csv[df_csv['Quantity'] > 10]
+        
+        # GroupBy & Aggregation
+        df_csv.groupby('ProductID')['Quantity'].sum().reset_index()
+        
+        # Merge / Join
+        df1 = pd.DataFrame({"ID":[1,2],"Score":[80,90]})
+        df2 = pd.DataFrame({"ID":[1,2],"Name":["John","Alice"]})
+        df_merge = pd.merge(df1, df2, on="ID")
 
 8. NumPy (Numerical Computing)
 ------------------------------
-import numpy as np
-
-arr = np.array([1,2,3,4])
-print(arr.mean(), arr.sum(), arr.max())
-
-# Vectorized operations
-arr * 2
-np.sqrt(arr)
-
-# Boolean Indexing
-arr[arr>2]  # [3,4]
-
-# Random data
-np.random.seed(42)
-data = np.random.randint(1,100, size=(5,5))
+        import numpy as np
+        
+        arr = np.array([1,2,3,4])
+        print(arr.mean(), arr.sum(), arr.max())
+        
+        # Vectorized operations
+        arr * 2
+        np.sqrt(arr)
+        
+        # Boolean Indexing
+        arr[arr>2]  # [3,4]
+        
+        # Random data
+        np.random.seed(42)
+        data = np.random.randint(1,100, size=(5,5))
 
 9. Dates & Times
 ------------------
-df['SaleDate'] = pd.to_datetime(df['SaleDate'])
-df['Year'] = df['SaleDate'].dt.year
-df['Month'] = df['SaleDate'].dt.month
-df['Day'] = df['SaleDate'].dt.day
-
-df[df['SaleDate'] > '2024-06-01']
+        df['SaleDate'] = pd.to_datetime(df['SaleDate'])
+        df['Year'] = df['SaleDate'].dt.year
+        df['Month'] = df['SaleDate'].dt.month
+        df['Day'] = df['SaleDate'].dt.day
+        
+        df[df['SaleDate'] > '2024-06-01']
 
 10. Feature Engineering
 -----------------------
-# Total amount
-df['TotalAmount'] = df['Quantity'] * df['Price']
-
-# Conditional column
-df['HighSale'] = df['TotalAmount'].apply(lambda x: 'Yes' if x>5000 else 'No')
-
-# Binning
-df['SalesRange'] = pd.cut(df['TotalAmount'], bins=[0,1000,5000,10000], labels=['Low','Medium','High'])
+        # Total amount
+        df['TotalAmount'] = df['Quantity'] * df['Price']
+        
+        # Conditional column
+        df['HighSale'] = df['TotalAmount'].apply(lambda x: 'Yes' if x>5000 else 'No')
+        
+        # Binning
+        df['SalesRange'] = pd.cut(df['TotalAmount'], bins=[0,1000,5000,10000], labels=['Low','Medium','High'])
 
 11. Advanced Pandas Techniques
 ------------------------------
 Pivot tables:
-pivot = df.pivot_table(values='Quantity', index='ProductID', columns='City', aggfunc='sum', fill_value=0)
+        pivot = df.pivot_table(values='Quantity', index='ProductID', columns='City', aggfunc='sum', fill_value=0)
 
 Crosstab:
-pd.crosstab(df['City'], df['HighSale'], margins=True)
+        pd.crosstab(df['City'], df['HighSale'], margins=True)
 
 Handling missing values:
-df.fillna(0, inplace=True)
-df.dropna(inplace=True)
+        df.fillna(0, inplace=True)
+        df.dropna(inplace=True)
 
 Remove duplicates:
-df.drop_duplicates(inplace=True)
+        df.drop_duplicates(inplace=True)
 
 12. Visualization
 ------------------
 Matplotlib
-import matplotlib.pyplot as plt
-
-plt.figure(figsize=(8,5))
-plt.bar(df['ProductID'], df['TotalAmount'], color='skyblue')
-plt.title("Sales by Product")
-plt.xlabel("ProductID")
-plt.ylabel("TotalAmount")
-plt.show()
+        import matplotlib.pyplot as plt
+        
+        plt.figure(figsize=(8,5))
+        plt.bar(df['ProductID'], df['TotalAmount'], color='skyblue')
+        plt.title("Sales by Product")
+        plt.xlabel("ProductID")
+        plt.ylabel("TotalAmount")
+        plt.show()
 
 Seaborn
-import seaborn as sns
-
-# Heatmap for correlations
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-
-# Scatter plot
-sns.scatterplot(x="Quantity", y="TotalAmount", data=df, hue="HighSale")
-
-# Box plot
-sns.boxplot(x="SalesRange", y="TotalAmount", data=df)
+        import seaborn as sns
+        
+        # Heatmap for correlations
+        sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+        
+        # Scatter plot
+        sns.scatterplot(x="Quantity", y="TotalAmount", data=df, hue="HighSale")
+        
+        # Box plot
+        sns.boxplot(x="SalesRange", y="TotalAmount", data=df)
 
 13. Performance & Optimization
 ------------------------------
 Use vectorized operations instead of loops
 
-# Slow
-df['Total'] = [x*y for x,y in zip(df['Quantity'], df['Price'])]
-
-# Fast
-df['Total'] = df['Quantity'] * df['Price']
-
-Convert datatypes for memory efficiency
-df['Quantity'] = df['Quantity'].astype('int32')
-
-Efficient filtering:
-df.query("Quantity>5 & Price>1000")
+        # Slow
+        df['Total'] = [x*y for x,y in zip(df['Quantity'], df['Price'])]
+        
+        # Fast
+        df['Total'] = df['Quantity'] * df['Price']
+        
+        Convert datatypes for memory efficiency
+        df['Quantity'] = df['Quantity'].astype('int32')
+        
+        Efficient filtering:
+        df.query("Quantity>5 & Price>1000")
 
 14. Integration with SQL / Power BI
 -----------------------------------
 SQL-like operations in pandas:
-
-df[df['City']=='Chennai']   # WHERE
-df.groupby('ProductID')['TotalAmount'].sum()  # GROUP BY
-pd.merge(df1, df2, on='CustomerID', how='left') # JOIN
-
+        df[df['City']=='Chennai']   # WHERE
+        df.groupby('ProductID')['TotalAmount'].sum()  # GROUP BY
+        pd.merge(df1, df2, on='CustomerID', how='left') # JOIN
 
 Calculated columns like DAX:
-df['TotalSales'] = df['Quantity'] * df['Price']
-df['HighValue'] = df['TotalSales'].apply(lambda x: 'Yes' if x>5000 else 'No')
-
+        df['TotalSales'] = df['Quantity'] * df['Price']
+        df['HighValue'] = df['TotalSales'].apply(lambda x: 'Yes' if x>5000 else 'No')
 
 Export processed data for Power BI:
-df.to_csv("processed_data.csv", index=False)
+        df.to_csv("processed_data.csv", index=False)
 
 15. Exception Handling
 ----------------------
-try:
-    x = 10 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero")
+        try:
+            x = 10 / 0
+        except ZeroDivisionError:
+            print("Cannot divide by zero")
 
 16. Tips for Analytics
 ----------------------
-Inspect your data first: df.head(), df.info(), df.describe(), df.isnull().sum()
-Use vectorized pandas/numpy operations for speed.
-GroupBy + Pivot Tables + Crosstab for aggregation.
-Feature engineering is key for insights.
-Visualization early to detect patterns & outliers.
-Combine Python + SQL + Power BI for end-to-end analytics workflow.
+        Inspect your data first: df.head(), df.info(), df.describe(), df.isnull().sum()
+        Use vectorized pandas/numpy operations for speed.
+        GroupBy + Pivot Tables + Crosstab for aggregation.
+        Feature engineering is key for insights.
+        Visualization early to detect patterns & outliers.
+        Combine Python + SQL + Power BI for end-to-end analytics workflow.
